@@ -1,5 +1,5 @@
 import assert from "assert";
-
+import { greedy_snake_move } from "./t1_rust/pkg/t1_rust.js";
 // Choose proper "import" depending on your PL.
 // import { greedy_snake_move } from "./t1-as/build/release.js";
 // import { greedy_snake_move } from "./t1_rust/pkg/t1_rust.js";

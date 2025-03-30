@@ -1,6 +1,6 @@
 use wasm_bindgen::prelude::*;
 
-#[wasm_bindgen]
+
 pub fn func(flag: i32, seq: &[i32], size: i32) -> i32 {
     10
 }
