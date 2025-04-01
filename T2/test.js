@@ -1,4 +1,5 @@
 import assert from "assert";
+import { greedy_snake_move_barriers as greedySnakeMoveBarriers } from "./t2_rust/pkg/t2_rust.js"
 
 // Choose proper "import" depending on your PL.
 // import { greedySnakeMoveBarriers } from "./t2_as/build/release.js";
