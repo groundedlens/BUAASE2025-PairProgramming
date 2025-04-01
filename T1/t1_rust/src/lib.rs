@@ -40,17 +40,33 @@ pub fn greedy_snake_move(snake: Vec<i32>, food: Vec<i32>) -> i32 {
 
 
 
-pub fn add(left: u64, right: u64) -> u64 {
-    left + right
-}
-
 #[cfg(test)]
 mod tests {
     use super::*;
 
     #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
+    fn test_greedy_snack_move1() {
+        let snake = vec![1, 1, 2, 1, 3, 1, 4, 1];
+        let food: Vec<i32> = vec![1, 2];
+        let result: i32 = greedy_snake_move(snake, food);
+        assert_ne!(result, 1);
+        assert_ne!(result, 2);
+        assert_ne!(result, 3);
+    }
+
+    #[test]
+    fn test_greedy_snack_move2() {
+        let snake: Vec<i32> = vec![3, 4, 3, 3, 3, 2, 2, 2];
+        let food: Vec<i32> = vec![5, 6];
+        let result: i32 = greedy_snake_move(snake, food);
+        assert_ne!(result, 3);
+    }
+
+    #[test]
+    fn test_greedy_snack_move3() {
+        let snake: Vec<i32> = vec![5, 6, 5, 5, 5, 4, 5, 3];
+        let food: Vec<i32> = vec![5, 2];
+        let result: i32 = greedy_snake_move(snake, food);
+        assert_ne!(result, 3);
     }
 }
