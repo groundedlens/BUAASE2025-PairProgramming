@@ -60,12 +60,10 @@ pub fn greedy_snake_move_barriers(snake: &[i32], fruit: &[i32], barriers: &[i32]
     // 更新模拟的蛇数组
     simulated_snake = vec![
         new_head.0, new_head.1,
-        new_head.0, new_head.1, // 临时填充，后续调整
         new_body[0].0, new_body[0].1,
         new_body[1].0, new_body[1].1,
         new_body[2].0, new_body[2].1,
     ];
-    simulated_snake.truncate(8); // 确保蛇身长度为4
 
     let mut steps_remaining = 50;
     let mut current_barrier_set = barrier_set.clone();
@@ -117,12 +115,10 @@ pub fn greedy_snake_move_barriers(snake: &[i32], fruit: &[i32], barriers: &[i32]
 
         simulated_snake = vec![
             updated_head.0, updated_head.1,
-            updated_head.0, updated_head.1, // 临时填充
             updated_body[0].0, updated_body[0].1,
             updated_body[1].0, updated_body[1].1,
             updated_body[2].0, updated_body[2].1,
         ];
-        simulated_snake.truncate(8);
 
         // 检查移动后是否可达
         let all_blocks = merge_blocks(&current_barrier_set, &updated_body);
@@ -256,11 +252,19 @@ mod tests {
     }
 
     #[test]
-    fn test_hard_unreachable_path() { // 需要掉头的情况
+    fn test2() { // 需要掉头的情况
         let snake_body = [8, 3, 8, 4, 8, 5, 8, 6];
         let food = [1, 1];
         let barriers = [6, 1, 6, 2, 6, 3, 6, 4, 7, 3, 4, 5, 5, 5, 5, 6, 3, 6, 3, 7, 2, 7, 5, 8];
         assert_eq!(greedy_snake_move_barriers(&snake_body, &food, &barriers), 2);
+    }
+
+    #[test]
+    fn test3() {
+        let snake_body = [8, 2,  8, 3,  8, 4,  8, 5];
+        let food = [1, 1];
+        let barriers = [6, 1,  6, 2,  6, 3,  6, 4,  7, 2,  4, 5, 5, 5, 5, 6, 3, 6, 3, 7, 2, 7, 5, 8];
+        assert_eq!(greedy_snake_move_barriers(&snake_body, &food, &barriers), -1);
     }
 
     #[test]
