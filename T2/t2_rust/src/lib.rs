@@ -256,11 +256,11 @@ mod tests {
     }
 
     #[test]
-    fn test_hard_unreachable_path() { // 需要掉头，但掉头会碰到蛇身的情况
+    fn test_hard_unreachable_path() { // 需要掉头的情况
         let snake_body = [8, 3, 8, 4, 8, 5, 8, 6];
         let food = [1, 1];
         let barriers = [6, 1, 6, 2, 6, 3, 6, 4, 7, 3, 4, 5, 5, 5, 5, 6, 3, 6, 3, 7, 2, 7, 5, 8];
-        assert_eq!(greedy_snake_move_barriers(&snake_body, &food, &barriers), -1);
+        assert_eq!(greedy_snake_move_barriers(&snake_body, &food, &barriers), 2);
     }
 
     #[test]

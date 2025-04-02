@@ -22,8 +22,8 @@ pub fn greedy_snake_move(snake: Vec<i32>, food: Vec<i32>) -> i32 {
             continue;
         }
         
-        // 检查是否碰到身体
-        if [x, y] == body1 || [x, y] == body2 || [x, y] == body3 {
+        // 检查是否碰到身体(实际上可以往body3走)
+        if [x, y] == body1 {
             continue;
         }
         
